@@ -1,65 +1,90 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
+import { siteConfig } from "@/site/config";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Home",
+  description: siteConfig.description,
+};
+
+const menuCards = [
+  {
+    title: "Client Projects",
+    body: "client projects past, present, and future",
+    image: "/images/service-1.jpg",
+    width: 370,
+    height: 500,
+  },
+  {
+    title: "Gaylord Home",
+    body: "my own home design and projects",
+    image: "/images/service-2.jpg",
+    width: 370,
+    height: 500,
+  },
+  {
+    title: "Products for Projects",
+    body: "products that I love and recommend for home decor and life",
+    image: "/images/service-3.jpg",
+    width: 370,
+    height: 500,
+  },
+] as const;
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeroSlideshow>
+        <h1 className="font-sans text-4xl font-normal tracking-tight text-white drop-shadow md:text-6xl">
+          Breanna Gaylord
+        </h1>
+        <h2
+          className="font-display mt-4 text-3xl font-normal italic text-white drop-shadow md:text-5xl"
+        >
+          design &amp; create
+        </h2>
+        <p className="mt-6 max-w-xl text-lg text-white/95 drop-shadow md:text-xl">
+          designing unique and functional homes + my own home
+        </p>
+      </HeroSlideshow>
+
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-[1140px] px-4">
+          <h2 className="text-center font-sans text-3xl font-normal text-[var(--heading)] md:text-4xl">
+            Menu
+          </h2>
+          <div
+            className="mx-auto mt-4 h-px max-w-xs bg-neutral-300"
+            aria-hidden
+          />
+          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+            {menuCards.map((card) => (
+              <article
+                key={card.title}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="relative aspect-[37/50] w-full max-w-[370px] overflow-hidden shadow-sm">
+                  <Image
+                    src={card.image}
+                    alt=""
+                    width={card.width}
+                    height={card.height}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width:768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="mt-6 font-sans text-xl font-medium text-[var(--heading)]">
+                  {card.title}
+                </h3>
+                <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-[var(--foreground)]">
+                  {card.body}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
