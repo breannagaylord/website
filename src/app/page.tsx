@@ -36,15 +36,13 @@ export default function HomePage() {
   return (
     <>
       <HeroSlideshow>
-        <h1 className="font-sans text-4xl font-normal tracking-tight text-white drop-shadow md:text-6xl">
+        <h1 className="font-hero text-5xl font-normal leading-none tracking-tight text-white drop-shadow sm:text-6xl md:text-[96px]">
           Breanna Gaylord
         </h1>
-        <h2
-          className="font-display mt-4 text-3xl font-normal italic text-white drop-shadow md:text-5xl"
-        >
+        <h2 className="font-script mt-4 text-4xl font-normal leading-tight text-white drop-shadow md:mt-5 md:text-6xl md:leading-none">
           design &amp; create
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-white/95 drop-shadow md:text-xl">
+        <p className="font-script mt-6 max-w-xl text-xl text-white/95 drop-shadow md:text-2xl">
           designing unique and functional homes + my own home
         </p>
       </HeroSlideshow>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Forum } from "next/font/google";
+import { Allison, Allura, DM_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig } from "@/site/config";
@@ -11,9 +11,16 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "700"],
 });
 
-const forum = Forum({
+/** Hero name line matches live site (Allison); tagline uses Allura. */
+const allison = Allison({
   subsets: ["latin"],
-  variable: "--font-forum",
+  variable: "--font-allison",
+  weight: "400",
+});
+
+const allura = Allura({
+  subsets: ["latin"],
+  variable: "--font-allura",
   weight: "400",
 });
 
@@ -43,7 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${forum.variable} h-full`}>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${allison.variable} ${allura.variable} h-full`}
+    >
       <body className="flex min-h-full flex-col antialiased">
         <a
           href="#content"
