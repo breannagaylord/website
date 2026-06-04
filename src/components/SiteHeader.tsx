@@ -15,7 +15,7 @@ export function SiteHeader() {
     <header className="absolute inset-x-0 top-0 z-50 text-white">
       <div className="mx-auto flex max-w-[1200px] items-center justify-end gap-4 px-4 pt-6 md:justify-between md:pt-8">
         <nav
-          className="hidden items-center gap-8 text-[15px] font-medium tracking-wide md:flex"
+          className="hidden items-center gap-5 text-[14px] font-medium tracking-wide md:flex"
           aria-label="Primary"
         >
           {navItems.map((item) => {
@@ -41,7 +41,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <a
             href={siteConfig.phoneTel}
-            className="hidden rounded border border-white/40 px-4 py-2 text-[15px] font-medium hover:bg-white/10 md:inline-block"
+            className="hidden rounded border border-white/40 px-4 py-2 text-[14px] font-medium hover:bg-white/10 md:inline-block"
           >
             {siteConfig.phoneDisplay}
           </a>
@@ -66,7 +66,7 @@ export function SiteHeader() {
           id="mobile-nav"
           className="border-t border-white/20 bg-black/80 px-4 py-4 md:hidden"
         >
-          <nav className="flex flex-col gap-3 text-[15px] font-medium" aria-label="Mobile primary">
+          <nav className="flex flex-col gap-3 text-[14px] font-medium" aria-label="Mobile primary">
             {navItems.map((item) => (
               <Link
                 key={item.href}
